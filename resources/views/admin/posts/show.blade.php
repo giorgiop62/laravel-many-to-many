@@ -7,6 +7,7 @@
 @section('content')
     <div class="container">
         <h1 class="my-5">{{$post->title}}</h1>
+        <p>{{$post->text}}</p>
 
 
     </div>

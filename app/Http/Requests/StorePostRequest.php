@@ -13,7 +13,7 @@ class StorePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title'=>'required|max:255|min:3',
+            'data'=>'required',
+            'text' =>'required|min:10'
+
+        ];
+    }
+
+    public function messages(){
+        return[
+            'title.required'=>'il titolo è un campo obbligatorio',
+            'data.required' =>'la data è un campo obbligatorio',
+            'title.max' => 'il titolo può avere al massimo :max caratteri',
+            'title.min' => 'il titolo può avere al minimo :min caratteri',
+            'text.required' =>'il testo è un campo obbligatorio',
+            'text.min' =>'il testo può avere minimo :min caratteri',
         ];
     }
 }
